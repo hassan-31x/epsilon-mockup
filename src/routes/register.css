@@ -1,0 +1,17 @@
+input, textarea {
+    border: 1px solid black;
+    margin-right: 2px;
+}
+
+button {
+    border: 2px solid purple;
+    padding: 0 4px;
+    margin: 0 2px;
+}
+
+.card {
+    display: none;
+}
+.active {
+    display: block;
+}

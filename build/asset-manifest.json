@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/epsilon/static/css/main.79ee8d68.css",
+    "main.js": "/epsilon/static/js/main.68733fed.js",
+    "static/media/testimg.png": "/epsilon/static/media/testimg.46c1ad8f81ccfc22e0c6.png",
+    "static/media/logo.png": "/epsilon/static/media/logo.4110d1e676fbf6104a41.png",
+    "index.html": "/epsilon/index.html",
+    "main.79ee8d68.css.map": "/epsilon/static/css/main.79ee8d68.css.map",
+    "main.68733fed.js.map": "/epsilon/static/js/main.68733fed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79ee8d68.css",
+    "static/js/main.68733fed.js"
+  ]
+}
