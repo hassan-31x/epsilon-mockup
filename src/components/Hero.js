@@ -19,10 +19,11 @@ const Hero = () => {
             <Cursor cursorColor='#E0CA3C' />
           </h1>
           <div className='pt-5'>
-            <button className='nav-button'><a href='/modules'>Modules</a></button>
-            <button className='nav-button'>Team</button>
-            <button className='nav-button'>About</button>
-            <button className='nav-button'>Contact</button>
+            <button className='nav-button'><a href='#modules'>Modules</a></button>
+            <button className='nav-button'><a href='#team'>Team</a></button>
+            <button className='mx-1 px-6 py-2 border hover:border-none rounded-full uppercase text-sm tracking-widest hover:text-[#371C5A] transition-all border-[#E0CA3C] text-[#E0CA3C] hover:bg-white hover:font-bold'><a href='/register'>Register</a></button>
+            <button className='nav-button'><a href='#about'>About</a></button>
+            <button className='nav-button'><a href='#contact'>Contact</a></button>
             {/* <Link to={{pathname: '/courses'}}><button className='nav-button'>About</button></Link>
             <Link to={{pathname: '/courses'}}><button className='nav-button'>Experience</button></Link>
             <Link to={{pathname: '/courses'}}><button className='nav-button'>Skills</button></Link>

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
+
 
 import './register.css'
 import { stem } from '../assets/stem.js'
@@ -22,11 +24,11 @@ const Register = () => {
     const [checkedStateS, setCheckedStateS] = useState(
         new Array(stem.length).fill(false)
       );
-    const [part0, setpart0] = useState({name: 'test0', email: 'test0@x.com', number: 'test0', institution: 'test0'});
-    const [part1, setpart1] = useState({name: 'test1', email: 'test1@x.com', number: 'test1', institution: 'test1'});
-    const [part2, setpart2] = useState({name: 'test2', email: 'test2@x.com', number: 'test2', institution: 'test2'});
-    const [part3, setpart3] = useState({name: 'test3', email: 'test3@x.com', number: 'test3', institution: 'test3'});
-    const [part4, setpart4] = useState({});
+    const [part0, setpart0] = useState({name: 'test0', email: 'test0@x.com', number: 'test0', institution: 'test0', social: ''});
+    const [part1, setpart1] = useState({name: 'test1', email: 'test1@x.com', number: 'test1', institution: 'test1', social: ''});
+    const [part2, setpart2] = useState({name: 'test2', email: 'test2@x.com', number: 'test2', institution: 'test2', social: ''});
+    const [part3, setpart3] = useState({name: 'test3', email: 'test3@x.com', number: 'test3', institution: 'test3', social: ''});
+    const [part4, setpart4] = useState({name: '', email: '', number: '', institution: '', social: ''});
 
 
     const handleChange = (event) => {
@@ -79,27 +81,54 @@ const Register = () => {
         setCheckedStateS(updatedCheckedStateS);  
     };
 
+    const [query, setquery] = useState({query: "bar"})
+    const [query2, setquery2] = useState({bar: "1"})
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        obj['members'].push(part0, part1, part2, part3, part4)
+        obj['members'].push(part0, part1, part2, part3)
+        const obj1 = Object.assign(obj, inputs)
+        const obj2 = Object.assign(obj, inputsT)
+        const obj3 = Object.assign(obj, query)
+        const obj4 = Object.assign(obj, query2)
         for (let i = 0; i < checkedState.length; i++) {
             if (checkedState[i]) {
-              obj['modules'].push(general[i])
+              obj['modules'].push(general[i].id)
             }
         }
         for (let i = 0; i < checkedStateS.length; i++) {
             if (checkedStateS[i]) {
-              obj['modules'].push(stem[i])
+              obj['modules'].push(stem[i].id)
             }
         }
-        console.log(obj)
+       let fData = new FormData();
+       fData.append('name', inputs) 
+       fData.append('notes', inputsT) 
+       fData.append('query', query) 
+       fData.append('bar', query2) 
 
-        setpart0({})
-        setpart1({})
-        setpart2({})
-        setpart3({})
-        setpart4({})
+
+       axios.defaults.headers.post['Content-Type'] ='application/json';
+        axios.post('http://epsilon.move.pk/query.php', obj)
+        .then(response => alert(response.data))
+        .catch(error => alert(error));
+
+        // fetch("http://epsilon.move.pk/query.php", {
+        //     mode: 'no-cors',
+        //     method: 'POST',
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify(obj)
+        // }).then(() => {
+        //     alert('success')
+        // })
+        
+        // console.log('obj')
+        // setpart0({})
+        // setpart1({})
+        // setpart2({})
+        // setpart3({})
+        // setpart4({})
         // setCheckedStateG({})
         // setCheckedStateS({})
     }
@@ -178,14 +207,14 @@ const Register = () => {
                         </ul>
                     </div>
                     <div className="">
-                        <label htmlFor="ambassador">Brand Ambassador</label>
+                        {/* <label htmlFor="ambassador">Brand Ambassador</label>
                         <select name="ba" id="ambassador" value={inputs.ba || ""} onChange={handleChange}>
                             <option value="choose" selected>Choose</option>
                             <option value="X">X</option>
                             <option value="Y">Y</option>
                             <option value="Z">Z</option>
                             <option value="D">D</option>
-                        </select>
+                        </select> */}
                     </div>
                     <div className="note">note
                         <textarea name="notes" id="" cols="12" rows="3" value={inputsT.notes || ""} onChange={handleTChange}></textarea>
@@ -208,9 +237,10 @@ const Register = () => {
                     <input type="text" name="institution" value={part0.institution || ""} onChange={handleChange1} id="institution1" required /></label>
                     <div className="">
                         Fee Structure
-                        <select name="fee1" id="ambassador" value={part0.fee1 || ""} onChange={handleChange1}>
-                        <option value="social" selected>Social</option>
-                        <option value="nosocial">No Social</option>
+                        <select name="social" id="social" value={part0.social || ""} onChange={handleChange1}>
+                        <option value="">-- choose --</option>
+                        <option value="true">Social</option>
+                        <option value="false">No Social</option>
                         </select>
                     </div>
                 </div>
@@ -226,9 +256,10 @@ const Register = () => {
                     <input type="text" name="institution" value={part1.institution || ""} onChange={handleChange2} required /></label>
                     <div className="">
                         Fee Structure
-                        <select name="fee" id="ambassador" value={part1.fee || ""} onChange={handleChange2}>
-                        <option value="social" selected>Social</option>
-                        <option value="nosocial">No Social</option>
+                        <select name="social" id="social" value={part1.social || ""} onChange={handleChange2}>
+                        <option value="">-- choose --</option>
+                        <option value="true">Social</option>
+                        <option value="false">No Social</option>
                         </select>
                     </div>
                 </div>
@@ -244,9 +275,10 @@ const Register = () => {
                     <input type="text" name="institution" value={part2.institution || ""} onChange={handleChange3} id="institution" required /></label>
                     <div className="">
                         Fee Structure
-                        <select name="fee3" id="ambassador" value={part2.fee || ""} onChange={handleChange3}>
-                        <option value="social" selected>Social</option>
-                        <option value="nosocial">No Social</option>
+                        <select name="social" id="social" value={part2.social || ""} onChange={handleChange3}>
+                        <option value="">-- choose --</option>
+                        <option value="true">Social</option>
+                        <option value="false">No Social</option>
                         </select>
                     </div>
                 </div>
@@ -262,9 +294,10 @@ const Register = () => {
                     <input type="text" name="institution" value={part3.institution || ""} onChange={handleChange4} required /></label>
                     <div className="">
                         Fee Structure
-                        <select name="fee" id="ambassador" value={part3.fee || ""} onChange={handleChange4}>
-                        <option value="social">Social</option>
-                        <option value="nosocial">No Social</option>
+                        <select name="social" id="social" value={part3.social || ""} onChange={handleChange4}>
+                        <option value="">-- choose --</option>
+                        <option value="true">Social</option>
+                        <option value="false">No Social</option>
                         </select>
                     </div>
                 </div><hr />
@@ -280,9 +313,10 @@ const Register = () => {
                     <input type="text" name="institution" value={part4.institution || ""} onChange={handleChange5} /></label>
                     <div className="">
                         Fee Structure
-                        <select name="fee" id="ambassador" value={part4.fee || ""} onChange={handleChange5}>
-                        <option value="social">Social</option>
-                        <option value="nosocial">No Social</option>
+                        <select name="social" id="social" value={part4.social || ""} onChange={handleChange5}>
+                        <option value="">-- choose --</option>
+                        <option value="true">Social</option>
+                        <option value="false">No Social</option>
                         </select>
                     </div>
                 </div><hr />
@@ -294,7 +328,7 @@ const Register = () => {
                 
                 <div>
                     {/* <button onClick={prev}>Previous</button> */}
-                    <button type="submit">Submit</button>
+                    <button type='submit'>Submit</button>
                 </div>
             </div>
             

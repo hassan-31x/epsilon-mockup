@@ -1,18 +1,18 @@
 export const general = [
     {
       module: "Area 51",
-      id: '1'
+      id: '0'
     },
     {
       module: "Cicada 3301",
-      id: '2'
+      id: '1'
     },
     {
       module: "Cerebral Labyrinth",
-      id: '3'
+      id: '2'
     },
     {
       module: "Escharian Stairwells",
-      id: '4'
+      id: '3'
     }
   ];
