@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -109,21 +109,21 @@ const Register = () => {
        fData.append('bar', query2) 
 
 
-       axios.defaults.headers.post['Content-Type'] ='application/json';
-        axios.post('http://epsilon.move.pk/query.php', obj)
-        .then(response => alert(response.data))
-        .catch(error => alert(error));
+        // axios.post('http://epsilon.move.pk/query.php', obj)
+        // .then(response => alert(response.data))
+        // .catch(error => alert(error));
 
-        // fetch("http://epsilon.move.pk/query.php", {
-        //     mode: 'no-cors',
+        // fetch("http://localhost:8000/forms", {
+        // // fetch("http://epsilon.move.pk/query.php", {
         //     method: 'POST',
         //     headers: { "Content-Type": "application/json" },
         //     body: JSON.stringify(obj)
         // }).then(() => {
-        //     alert('success')
+        //     console.log(JSON.stringify(obj))
         // })
         
-        // console.log('obj')
+        
+        console.log(obj)
         // setpart0({})
         // setpart1({})
         // setpart2({})
@@ -133,13 +133,14 @@ const Register = () => {
         // setCheckedStateS({})
     }
 
+
     // Elements
     // const first = document.querySelector('.first')
     // const second = document.querySelector('.second')
 
     // Functions
     // const next = () => {
-    //     first.classList.remove('active')
+        //     first.classList.remove('active')
     //     second.classList.add('active')
     // }
     // const prev = () => {.
