@@ -6,6 +6,7 @@ import axios from 'axios'
 import './register.css'
 import { stem } from '../assets/stem.js'
 import { general } from '../assets/general.js'
+import Loader from '../components/Loader.js'
 
 const Register = () => {
 
@@ -153,6 +154,7 @@ const Register = () => {
 
   return (
     <div>
+        <Loader title="epsilon" subtitle="modules" />
         {/* <form method="post" action="./query.php"> */}
         <form onSubmit={handleSubmit}>
 

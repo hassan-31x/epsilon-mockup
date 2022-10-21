@@ -5,6 +5,7 @@ import Modules from './routes/Modules.js';
 import Request from './routes/Request.js';
 import Register from './routes/Register.js';
 import Another from './routes/Another.js';
+import Loader from './components/Loader.js';
 import Error from './routes/Error.js';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/request' element={<Request />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/another' element={<Another />}/>
+          <Route path='/loader' element={<Loader />}/>
 
           <Route path='*' element={<Error />} />
         </Routes>
