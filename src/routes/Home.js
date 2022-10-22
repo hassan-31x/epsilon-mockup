@@ -5,8 +5,10 @@ import LoaderHome from '../components/LoaderHome.js'
 import Navbar from '../components/Navbar.js'
 import Hero from '../components/Hero.js'
 import About from '../components/About.js'
-import Team from '../components/Team.js'
 import Modules from '../components/Modules.js'
+import Team from '../components/Team.js'
+import Contact from '../components/Contact.js'
+import Footer from '../components/Footer.js'
 import TopBtn from '../components/TopBtn.js'
 
 
@@ -28,8 +30,10 @@ export default function Home() {
       <Navbar />
       <section className='snap-start' id='hero'><Hero /></section>
       <section className='snap-center' id='about'><About /></section>
-      <section className='snap-center' id='about'><Team /></section>
       <section className='snap-start' id='modules'><Modules /></section>
+      <section className='snap-center' id='about'><Team /></section>
+      <section className='snap-center' id='contact'><Contact /></section>
+      <section className='snap-center' id='footer'><Footer /></section>
       <section className='sticky bottom-5 cursor-pointer'><TopBtn /></section>
     </div>
   )

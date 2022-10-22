@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import facebooks from '../assets/facebooks.png'
-import autocode from '../assets/autocode.png'
+import autocode from '../assets/autocode.jpg'
 
 const Module = (props) => {
   return (
@@ -18,7 +18,7 @@ const Module = (props) => {
          />
 
         <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-[6.5rem] h-[6.5rem] xl:w-[8rem] xl:h-[8rem] rounded-full z-0'>
-          <div className="flex items-center justify-center h-full"><p className="text-xl font-bold text-black opacity-100 text-center">{props.name}</p></div>
+          <div className="flex items-center justify-center h-full"><p className="text-xl font-bold text-[#AC67D6] opacity-100 text-center">{props.name}</p></div>
         </div>
     </div>
   )
