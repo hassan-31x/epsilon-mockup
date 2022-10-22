@@ -12,7 +12,7 @@ const About = () => {
       </h3>
 
       <div className='flex flex-col lg:flex-row w-full max-w-6xl'>
-        <div className="mx-auto lg:mx-0 lg:mt-10" style={{flex: '2'}}>
+        <div className="mx-auto lg:mx-0" style={{flex: '2'}}>
           <Meaning />
         </div>
         <div className="text-center lg:text-left mx-auto lg:mx-0 mt-10 lg:mt-0" style={{flex: '1'}}>
