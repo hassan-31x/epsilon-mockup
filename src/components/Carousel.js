@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from "swiper";
@@ -11,7 +11,7 @@ const Carousel = () => {
     const [full, setfull] = useState(false)
 
     const fullView = () => {
-        setfull(true)
+        setfull(!true)
     }
 
   return (

@@ -11,10 +11,24 @@ import Contact from '../components/Contact.js'
 import Footer from '../components/Footer.js'
 import TopBtn from '../components/TopBtn.js'
 
+import Lottie from 'react-lottie'
+import animationData from '../assets/lottiexx.json'
+
 
 
 
 export default function Home() {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
+  
   
   // const [load, setload] = useState(false)
 
@@ -29,6 +43,13 @@ export default function Home() {
       <LoaderHome />
       <Navbar />
       <section className='snap-start' id='hero'><Hero /></section>
+      <section className='z-[100000] h-screen w-screen snap-center' id='lottie'>
+        <Lottie
+	        options={defaultOptions}
+          height={800}
+          width={800}
+        />
+      </section>
       <section className='snap-center' id='about'><About /></section>
       <section className='snap-start' id='modules'><Modules /></section>
       <section className='snap-center' id='about'><Team /></section>

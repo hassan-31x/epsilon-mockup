@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import axios from 'axios'
 
 
 import './register.css'
@@ -136,18 +135,18 @@ const Register = () => {
 
 
     // Elements
-    // const first = document.querySelector('.first')
-    // const second = document.querySelector('.second')
+    const first = document.querySelector('.first')
+    const second = document.querySelector('.second')
 
     // Functions
-    // const next = () => {
-        //     first.classList.remove('active')
-    //     second.classList.add('active')
-    // }
-    // const prev = () => {.
-    //     second.classList.remove('active')
-    //     first.classList.add('active')
-    // }
+    const next = () => {
+            first.classList.remove('active')
+        second.classList.add('active')
+    }
+    const prev = () => {
+        second.classList.remove('active')
+        first.classList.add('active')
+    }
 
     // Members
     const [member, setmember] = useState(4)
@@ -222,11 +221,11 @@ const Register = () => {
                     <div className="note">note
                         <textarea name="notes" id="" cols="12" rows="3" value={inputsT.notes || ""} onChange={handleTChange}></textarea>
                     </div>
-                    {/* <button onClick={next}>Next</button> */}
+                    <button onClick={next}>Next</button>
             </div>
 
             {/* Second Page */}
-            <div className="second card active">
+            <div className="second card">
                 <h1 className='text-3xl'>Participant Info</h1>
                 <div className="">
                     <h2 className='font-bold text-xl'>Partcipant 1 Info</h2>
@@ -330,7 +329,7 @@ const Register = () => {
               
                 
                 <div>
-                    {/* <button onClick={prev}>Previous</button> */}
+                    <button onClick={prev}>Previous</button>
                     <button type='submit'>Submit</button>
                 </div>
             </div>

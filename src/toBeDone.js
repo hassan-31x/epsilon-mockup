@@ -1,0 +1,1 @@
+// Make 404 page with illustrations
